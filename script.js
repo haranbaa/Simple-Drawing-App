@@ -65,4 +65,10 @@ function saveDrawing() {
   link.click();
 }
 
-
+function adjustBrushSize(e) {
+  if (e.key === '+') {
+    brushSize += 1;
+  } else if (e.key === '-') {
+    brushSize = Math.max(1, brushSize - 1);
+  }
+}
