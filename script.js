@@ -54,4 +54,15 @@ function draw(e) {
   ctx.stroke();
 }
 
+function clearCanvas() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+function saveDrawing() {
+  const link = document.createElement('a');
+  link.download = 'drawing.png';
+  link.href = canvas.toDataURL();
+  link.click();
+}
+
 
