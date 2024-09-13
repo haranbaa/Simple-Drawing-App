@@ -40,5 +40,18 @@ function startDrawing(e) {
   ctx.moveTo(e.offsetX, e.offsetY);
 }
 
-
+function stopDrawing() {
+  drawing = false;
 }
+
+function draw(e) {
+  if (!drawing) return;
+  ctx.lineWidth = brushSize;
+  ctx.lineCap = 'round';
+  ctx.strokeStyle = brushColor;
+
+  ctx.lineTo(e.offsetX, e.offsetY);
+  ctx.stroke();
+}
+
+
