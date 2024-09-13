@@ -15,3 +15,30 @@ function setupCanvas() {
   canvas.height = 600 * dpr;
   ctx.scale(dpr, dpr);
 }
+
+setupCanvas();
+
+// Event Listeners
+canvas.addEventListener('mousedown', startDrawing);
+canvas.addEventListener('mouseup', stopDrawing);
+canvas.addEventListener('mouseout', stopDrawing);
+canvas.addEventListener('mousemove', draw);
+
+colorPicker.addEventListener('change', (e) => {
+  brushColor = e.target.value;
+});
+
+clearBtn.addEventListener('click', clearCanvas);
+saveBtn.addEventListener('click', saveDrawing);
+
+window.addEventListener('keydown', adjustBrushSize);
+
+// Functions
+function startDrawing(e) {
+  drawing = true;
+  ctx.beginPath();
+  ctx.moveTo(e.offsetX, e.offsetY);
+}
+
+
+}
